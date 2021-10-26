@@ -1,10 +1,7 @@
-
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_customer/providers/auth_provider.dart';
 import 'package:grocery_customer/providers/location_provider.dart';
-import 'package:grocery_customer/screens/welcome_screen.dart';
 import 'package:grocery_customer/widgets/image_slider.dart';
 import 'package:grocery_customer/widgets/my_appbar.dart';
 import 'package:grocery_customer/widgets/near_by_store.dart';
