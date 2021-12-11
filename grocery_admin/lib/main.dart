@@ -6,7 +6,11 @@ import 'package:grocery_admin/screens/category_screens.dart';
 import 'package:grocery_admin/screens/delivery_boy_screen.dart';
 import 'package:grocery_admin/screens/home_screen.dart';
 import 'package:grocery_admin/screens/login_screen.dart';
+import 'package:grocery_admin/screens/notification_screen.dart';
+import 'package:grocery_admin/screens/orders_screen.dart';
+import 'package:grocery_admin/screens/settings_screen.dart';
 import 'package:grocery_admin/screens/splash_screen.dart';
+import 'package:grocery_admin/screens/users_screen.dart';
 import 'package:grocery_admin/screens/vendor_screen.dart';
 
 
@@ -35,6 +39,10 @@ class MyApp extends StatelessWidget {
         VendorScreen.id:(context)=>VendorScreen(),
         CategoryScreen.id:(context)=>CategoryScreen(),
         DeliveryBoyScreen.id:(context)=>DeliveryBoyScreen(),
+        SettingsScreen.id:(context)=>SettingsScreen(),
+        OrdersScreen.id:(context)=>OrdersScreen(),
+        UsersScreen.id:(context)=>UsersScreen(),
+        NotificationScreen.id:(context)=>NotificationScreen(),
       },
     );
   }

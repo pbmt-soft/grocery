@@ -59,7 +59,7 @@ class ProductProvider extends ChangeNotifier{
 
   getShopName(shopName){
     this.shopName=shopName;
-    notifyListeners();
+    //notifyListeners();
   }
 
   resetProvider(){

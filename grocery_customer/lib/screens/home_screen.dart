@@ -21,10 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final auth=Provider.of<AuthProvider>(context);
-    final locationData=Provider.of<LocationProvider>(context);
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[200],
 
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context,bool innerBoxIsScrolled){
@@ -33,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ];
         },
         body: ListView(
+          padding: EdgeInsets.only(top: 0.0),
           children: [
             ImageSlider(),
             Container(
@@ -40,7 +40,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.white,
                 child: TopPickStore(),),
             Divider(thickness: 5,),
-            NearByStore(),
+            Padding(
+              padding: const EdgeInsets.only(top:6.0),
+              child: NearByStore(),
+            ),
           ],
         ),
       ),

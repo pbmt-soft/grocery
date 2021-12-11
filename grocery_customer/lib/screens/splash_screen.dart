@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Navigator.pushReplacementNamed(context,WelcomeScreen.id);
         }else{
           getUserData();
-          Navigator.pushReplacementNamed(context,HomeScreen.id);
+          Navigator.pushReplacementNamed(context,MainScreen.id);
         }
       });
     }
@@ -68,7 +68,7 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Image.asset('images/store.jpg'),
-              Text('Grocery Store  - Customer',
+              Text('Mini Mart-Customer',
                 style: TextStyle(fontSize: 15,fontWeight: FontWeight.w700),)
             ],
           )

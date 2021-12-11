@@ -1,10 +1,13 @@
 
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:grocery_vendor/screens/banner_screen.dart';
+import 'package:grocery_vendor/screens/coupon_screen.dart';
 import 'package:grocery_vendor/screens/dashboard_screen.dart';
+import 'package:grocery_vendor/screens/login_screen.dart';
+import 'package:grocery_vendor/screens/order_screen.dart';
 import 'package:grocery_vendor/screens/products_screen.dart';
+import 'package:grocery_vendor/screens/report_screen.dart';
+import 'package:grocery_vendor/screens/setting_screen.dart';
 
 class DrawerServices{
 
@@ -19,19 +22,19 @@ class DrawerServices{
       return BannerScreen();
     }
     if(title=='Coupons'){
-      return MainScreen();
+      return CouponScreen();
     }
     if(title=='Orders'){
-      return MainScreen();
+      return OrderScreen();
     }
     if(title=='Reports'){
-      return MainScreen();
+      return ReportScreen();
     }
     if(title=='Setting'){
-      return MainScreen();
+      return SettingScreen();
     }
     if(title=='LogOut'){
-      return MainScreen();
+      return LoginScreen();
     }
     return  MainScreen();
   }

@@ -6,6 +6,10 @@ import 'package:grocery_admin/screens/category_screens.dart';
 import 'package:grocery_admin/screens/delivery_boy_screen.dart';
 import 'package:grocery_admin/screens/home_screen.dart';
 import 'package:grocery_admin/screens/login_screen.dart';
+import 'package:grocery_admin/screens/notification_screen.dart';
+import 'package:grocery_admin/screens/orders_screen.dart';
+import 'package:grocery_admin/screens/settings_screen.dart';
+import 'package:grocery_admin/screens/users_screen.dart';
 import 'package:grocery_admin/screens/vendor_screen.dart';
 
 class SideBarWidget{
@@ -39,22 +43,22 @@ class SideBarWidget{
         ),
         MenuItem(
           title: 'Orders',
-          route: '/',
+          route: OrdersScreen.id,
           icon: CupertinoIcons.shopping_cart,
         ),
         MenuItem(
           title: 'Admin Users',
-          route: '/',
+          route: UsersScreen.id,
           icon: Icons.person,
         ),
         MenuItem(
           title: 'Send Notification',
-          route: '/',
+          route: NotificationScreen.id,
           icon: Icons.notifications,
         ),
         MenuItem(
           title: 'Settings',
-          route: '/',
+          route: SettingsScreen.id,
           icon: Icons.settings,
         ),
         MenuItem(

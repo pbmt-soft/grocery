@@ -4,7 +4,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:grocery_vendor/providers/product_provider.dart';
+import 'package:grocery_vendor/services/firebase_services.dart';
+import 'package:grocery_vendor/widgets/banner_card.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
@@ -21,6 +24,7 @@ class _BannerScreenState extends State<BannerScreen> {
   bool isPickAvail=false;
   String pickerError='';
   var _imagePathText=TextEditingController();
+  FirebaseServices _services=FirebaseServices();
 
 
   @override
@@ -30,12 +34,7 @@ class _BannerScreenState extends State<BannerScreen> {
     return Scaffold(
       body: ListView(
         children: [
-          SizedBox(
-            height: 200,
-            child: Card(
-              color: Colors.grey[200],
-            ),
-          ),
+          BannerCard(),
           Divider(thickness: 3,),
           SizedBox(height: 20,),
           Container(child: Center(child: Text('ADD NEW BANNER',style: TextStyle(fontWeight: FontWeight.bold),),),
@@ -49,11 +48,9 @@ class _BannerScreenState extends State<BannerScreen> {
                   SizedBox(
                     height: 150,
                     width: MediaQuery.of(context).size.width,
-                    child: Expanded(
-                      child: Card(
-                        color: Colors.grey[200],
-                        child:_image!=null ? Image.file(_image) : Center(child: Text('No Image Selected'),),
-                      ),
+                    child: Card(
+                      color: Colors.grey[200],
+                      child:_image!=null ? Image.file(_image,fit: BoxFit.fill,) : Center(child: Text('No Image Selected'),),
                     ),
                   ),
                   TextFormField(
@@ -116,10 +113,22 @@ class _BannerScreenState extends State<BannerScreen> {
                                   child: FlatButton(
                                     color: _image != null ?Theme.of(context).primaryColor : Colors.grey,
                                     onPressed: (){
+                                      EasyLoading.show(status: 'Saving...');
                                         uploadFile(_image.path,_provider.shopName).then((url){
                                           if(url != null){
-
+                                            _services.saveBanner(url);
+                                            setState(() {
+                                              _imagePathText.clear();
+                                              _image=null;
+                                            });
+                                            EasyLoading.dismiss();
+                                            _provider.alertDialog(
+                                              context: context,
+                                              title: 'Banner Saved',
+                                              content: 'Banner Saved',
+                                            );
                                           }else{
+                                            EasyLoading.dismiss();
                                             _provider.alertDialog(
                                               context: context,
                                               title: 'Banner Upload',
@@ -142,6 +151,8 @@ class _BannerScreenState extends State<BannerScreen> {
                                   onPressed: (){
                                       setState(() {
                                         _visible=false;
+                                        _imagePathText.clear();
+                                        _image=null;
                                       });
                                   },
                                   child: Text('Cancel',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
