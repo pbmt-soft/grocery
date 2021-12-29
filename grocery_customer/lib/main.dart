@@ -10,6 +10,7 @@ import 'package:grocery_customer/screens/login_screen.dart';
 import 'package:grocery_customer/screens/main_screen.dart';
 import 'package:grocery_customer/screens/map_screen.dart';
 import 'package:grocery_customer/screens/my_orders_screen.dart';
+import 'package:grocery_customer/screens/product_list_screen.dart';
 import 'package:grocery_customer/screens/profile_screen.dart';
 import 'package:grocery_customer/screens/splash_screen.dart';
 import 'package:grocery_customer/screens/vendor_home_screen.dart';
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
         FavouriteScreen.id:(context)=>FavouriteScreen(),
         MyOrdersScreen.id:(context)=>MyOrdersScreen(),
         VendorHomeScreen.id:(context)=>VendorHomeScreen(),
+        ProductListScreen.id:(context)=>ProductListScreen(),
       },
     );
   }
